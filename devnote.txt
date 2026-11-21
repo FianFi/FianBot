@@ -1,0 +1,6 @@
+# Possible error
+1. Empty embed field at
+    a. setupDropdown.js [L272]
+    b. setup.js [L152]
+    c. enterTheVoid.js [L97]
+    d. voidSetup.js [L146]
