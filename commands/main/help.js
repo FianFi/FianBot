@@ -31,10 +31,10 @@ module.exports = {
         // Read command folder and add command list per folder
         const alamak = Object.keys(list.commandLists);
         const helpEmbed = new EmbedBuilder()
-            .setColor(embedColor.success)
+            .setColor(config.color.success)
             .setTitle("🛡️ Spam Guard Help")
-            .setDescription(configs.description+"\n\n"+configs.help_description)
-            .setFooter(configs.embed_footer)
+            .setDescription(config.description+"\n\n"+config.help_description)
+            .setFooter(config.embed.footer)
         alamak.forEach(folder => {
             let comms = '';
             list.commandLists[folder].forEach(comm => {

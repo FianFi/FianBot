@@ -197,13 +197,13 @@ async function embed_alreadySetup(interaction){
         Logger.error(interaction.guild.id, `[DB] ${error}`);
         console.error("An error occured in embed function: ",error);
         return new EmbedBuilder()
-            .setColor(embedColor.alert)
+            .setColor(config.color.alert)
             .setTitle("Error")
             .setDescription("An error occurred! Please try again later!\nOr send a report if you think this is a system error.")
-            .setFooter(configs.embed_footer)
+            .setFooter(config.embed.footer)
     }
     return new EmbedBuilder()
-        .setColor(embedColor.success)
+        .setColor(config.color.info)
         .setTitle("Void Information")
         .addFields(
             {
@@ -221,5 +221,5 @@ async function embed_alreadySetup(interaction){
                 inline: true
             }
         )
-        .setFooter(configs.embed_footer)
+        .setFooter(config.embed.footer)
 }

@@ -69,10 +69,10 @@ module.exports = {
                 content: "",
                 embeds: [
                     new EmbedBuilder()
-                    .setColor(embedColor.success)
+                    .setColor(config.color.success)
                     .setTitle("Automatic setup complete!")
                     .setDescription("Automatic setup complete! Make sure the void is at the top of this server channel!\nThen, make sure to set this bot's role above all roles in this server (regular Members) so that the bot can work properly.")
-                    .setFooter(configs.embed_footer)
+                    .setFooter(config.embed.footer)
                 ],
                 flags: MessageFlags.Ephemeral
             });
@@ -105,7 +105,7 @@ async function channelSetup(interaction){
 }
 async function embed_alreadySetup(voidData){
     return new EmbedBuilder()
-            .setColor(embedColor.success)
+            .setColor(config.color.info)
             .setTitle("Void Information")
             .addFields(
                 {
@@ -123,11 +123,11 @@ async function embed_alreadySetup(voidData){
                     inline: true
                 }
             )
-            .setFooter(configs.embed_footer)
+            .setFooter(config.embed.footer)
 }
 async function embed_voidChMessage(){
     return new EmbedBuilder()
-        .setColor(embedColor.success)
+        .setColor(config.color.info)
         .setTitle("Void Channel!")
         .addFields(
             {
@@ -139,7 +139,7 @@ async function embed_voidChMessage(){
                 value: "0"
             }
         )
-        .setFooter(configs.embed_footer)
+        .setFooter(config.embed.footer)
 }
 async function voidSetupComponents(){
     const dropdown = new StringSelectMenuBuilder()

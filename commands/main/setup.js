@@ -82,10 +82,10 @@ module.exports = {
                 await interaction.reply({
                     embeds: [
                         new EmbedBuilder()
-                        .setColor(embedColor.success)
+                        .setColor(config.color.success)
                         .setTitle("Server setup was successful!")
                         .setDescription("You can adjust the moderator role however you like")
-                        .setFooter(configs.embed_footer)
+                        .setFooter(config.embed.footer)
                     ],
                     flags: MessageFlags.Ephemeral
                 });
@@ -125,7 +125,7 @@ async function guildInformationEmbed(interaction){
     );
     const peaText = `<t:${peaUnixTime}:R>`;
     return new EmbedBuilder()
-        .setColor(embedColor.success)
+        .setColor(config.color.info)
         .setTitle("Guild Information")
         .setDescription("Your server has been set up, here’s the server information recorded in the bot")
         .addFields(
@@ -168,7 +168,7 @@ async function guildInformationEmbed(interaction){
                 inline: true
             }
         )
-        .setFooter(configs.embed_footer)
+        .setFooter(config.embed.footer)
 }
 async function setupComponents(){
     const dropdown = new StringSelectMenuBuilder()

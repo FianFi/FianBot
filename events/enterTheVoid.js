@@ -1,10 +1,10 @@
-const discord = require('discord.js');
+const { Events, MessageFlags, EmbedBuilder } = require('discord.js');
 const fs = require('fs');
 const SqlDB = require('../services/connection.js');
 const { Logger } = require('../handler/botLogger.js');
 
 module.exports = {
-    name: discord.Events.MessageCreate,
+    name: Events.MessageCreate,
     async execute(message) {
         if (!message.guild || message.author.bot) return;
         let voidData;
@@ -16,7 +16,7 @@ module.exports = {
         } catch (error) {
             await message.guild.systemChannel.send({
                 content: "An error occurred! Please delete the spam manually and file a report!",
-                flags: discord.MessageFlags.Ephemeral
+                flags: MessageFlags.Ephemeral
             });
             Logger.error(message.guild.id, `[DB] ${error}`);
             console.error(error);
@@ -26,7 +26,7 @@ module.exports = {
         if(!voidData[0].void_enabled){
             await message.guild.systemChannel.send({
                 content: `<@${message.author.id}> got caught spamming, but since the channel void is disabled <@${message.author.id}> doesn't get punished`,
-                flags: discord.MessageFlags.Ephemeral
+                flags: MessageFlags.Ephemeral
             });
             Logger.void(message.guild.id, "disabled", `${message.author.username}(${message.author.id}) has caught spamming while void disabled`);
         	await message.delete().catch((error)=>{
@@ -62,7 +62,7 @@ module.exports = {
             } catch (error) {
                 await logCh.send({
                     content: "An error occurred! Please delete the spam manually and file a report!",
-                    flags: discord.MessageFlags.Ephemeral
+                    flags: MessageFlags.Ephemeral
                 });
                 Logger.error(message.guild.id, `[DB] ${error}`);
                 console.error(error);
@@ -125,8 +125,8 @@ async function embed_voidChMessage(message){
         console.error(error);
         return;
     }
-    return new discord.EmbedBuilder()
-            .setColor(embedColor.success)
+    return new EmbedBuilder()
+            .setColor(config.color.success)
             .setTitle("Void Channel!")
             .addFields(
                 {
@@ -138,5 +138,5 @@ async function embed_voidChMessage(message){
                     value: kickCounts ? `${kickCounts[0].kick_count}` : `NotSure`
                 }
             )
-            .setFooter(configs.embed_footer)
+            .setFooter(config.embed.footer)
 }

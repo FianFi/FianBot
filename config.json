@@ -2,8 +2,15 @@
 	"name": "Spam Guard",
 	"description": "Welcome to the Spam Guard help menu! Spam Guard is a project bot with features that help you manage your Discord server.",
 	"help_description": "Here is a list of slash commands you can use. You can find more by typing `/` in the message bar!\nMaybe there are some features that can't be used yet and the command text won't be blue, please wait for future updates",
-	"embed_footer": {
-		"text":"FianBot | FiStuff"
+	"color":{
+		"info": [30, 144, 255],
+		"success": [76, 175, 80],
+		"alert": [187, 33, 36]
+	},
+	"embed":{
+		"footer": {
+			"text":"FianBot | FiStuff"
+		}
 	},
 	"PREFIX": ["pm!",";"]
 }

@@ -51,10 +51,10 @@ module.exports = {
                 content: "No void channel has been set up yet",
                 embeds: [
                     new EmbedBuilder()
-                    .setColor(embedColor.alert)
+                    .setColor(config.color.alert)
                     .setTitle("Void Not Found")
                     .setDescription("Your server hasn't been set up for the void feature!")
-                    .setFooter(configs.embed_footer)
+                    .setFooter(config.embed.footer)
                 ],
                 flags: MessageFlags.Ephemeral
             });

@@ -42,10 +42,10 @@ module.exports = {
             await interaction.reply({
                 embeds: [
                     new EmbedBuilder()
-                    .setColor(embedColor.alert)
+                    .setColor(config.color.alert)
                     .setTitle("Link Empty")
                     .setDescription("Your server hasn't added an invite link!")
-                    .setFooter(configs.embed_footer)
+                    .setFooter(config.embed.footer)
                 ],
                 flags: MessageFlags.Ephemeral
             });

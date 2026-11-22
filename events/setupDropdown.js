@@ -123,13 +123,13 @@ async function setModEmbed(interaction){
         });
         console.error(error);
         return new EmbedBuilder()
-            .setColor(embedColor.alert)
+            .setColor(config.color.alert)
             .setTitle("Error")
             .setDescription("An error occurred! Please try again later!\nOr send a report if you think this is a system error.")
-            .setFooter(configs.embed_footer)
+            .setFooter(config.embed.footer)
     }
     return new EmbedBuilder()
-        .setColor(embedColor.success)
+        .setColor(config.color.success)
         .setTitle("Set Moderator")
         .setDescription("Choose a role to make a moderator")
         .addFields(
@@ -138,7 +138,7 @@ async function setModEmbed(interaction){
                 value: `${guildData[0].admin_role ? `<@&${guildData[0].admin_role}>` : `No Mod`}`
             }
         )
-        .setFooter(configs.embed_footer)
+        .setFooter(config.embed.footer)
 }
 async function setLogChEmbed(interaction){
     let guildData;
@@ -155,13 +155,13 @@ async function setLogChEmbed(interaction){
         });
         console.error(error);
         return new EmbedBuilder()
-            .setColor(embedColor.alert)
+            .setColor(config.color.alert)
             .setTitle("Error")
             .setDescription("An error occurred! Please try again later!\nOr send a report if you think this is a system error.")
-            .setFooter(configs.embed_footer)
+            .setFooter(config.embed.footer)
     }
     return new EmbedBuilder()
-        .setColor(embedColor.success)
+        .setColor(config.color.success)
         .setTitle("Set Bot Log Channel")
         .setDescription("Choose a channel to make a bot log channel")
         .addFields(
@@ -170,7 +170,7 @@ async function setLogChEmbed(interaction){
                 value: `${guildData[0].log_channel_id ? `<#${guildData[0].log_channel_id}>` : "Default at System Log"}`
             }
         )
-        .setFooter(configs.embed_footer)
+        .setFooter(config.embed.footer)
 }
 async function setupComponents(){
     const dropdown = new StringSelectMenuBuilder()
@@ -234,10 +234,10 @@ async function guildInformationEmbed(interaction){
         });
         console.error(error);
         return new EmbedBuilder()
-            .setColor(embedColor.alert)
+            .setColor(config.color.alert)
             .setTitle("Error")
             .setDescription("An error occurred! Please try again later!\nOr send a report if you think this is a system error.")
-            .setFooter(configs.embed_footer)
+            .setFooter(config.embed.footer)
     }
     const fsaUnixTime = Math.floor(
         new Date(guildData[0].first_setup_at).getTime() / 1000
@@ -249,7 +249,7 @@ async function guildInformationEmbed(interaction){
     );
     const peaText = `<t:${peaUnixTime}:R>`;
     return new EmbedBuilder()
-            .setColor(embedColor.success)
+            .setColor(config.color.info)
             .setTitle("Guild Information")
             .setDescription("Your server has been set up, here’s the server information recorded in the bot")
             .addFields(
@@ -292,5 +292,5 @@ async function guildInformationEmbed(interaction){
                     inline: true
                 }
             )
-            .setFooter(configs.embed_footer)
+            .setFooter(config.embed.footer)
 }

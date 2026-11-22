@@ -48,10 +48,10 @@ module.exports = {
             await interaction.reply({
                 embeds: [
                     new EmbedBuilder()
-                        .setColor(embedColor.alert)
+                        .setColor(config.color.alert)
                         .setTitle("Invite link already listed!")
                         .setDescription("Link: "+guildData[0].guild_invite_link) 
-                        .setFooter(configs.embed_footer)
+                        .setFooter(config.embed.footer)
                     
                 ],
                 flags: MessageFlags.Ephemeral
@@ -78,10 +78,10 @@ module.exports = {
         await interaction.reply({
             embeds: [
                 new EmbedBuilder()
-                    .setColor(embedColor.success)
+                    .setColor(config.color.success)
                     .setTitle("Invite link seted!")
                     .setDescription("Link: "+inviteLink) 
-                    .setFooter(configs.embed_footer)
+                    .setFooter(config.embed.footer)
             ],
             flags: MessageFlags.Ephemeral
         }); 
